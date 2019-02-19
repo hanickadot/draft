@@ -2387,6 +2387,8 @@ namespace std::ranges {
     friend constexpr sentinel_t<R> end(@\placeholder{ref-view}@ r)
     { return r.end(); }
   };
+  template<class R>
+    ref_view(R&) -> ref_view<R>;
 }
 \end{codeblock}
 
