@@ -1350,8 +1350,15 @@ namespace std {
 
 \indexlibrary{\idxcode{atomic}}%
 \pnum
-The template argument for
-\tcode{T} shall be trivially copyable\iref{basic.types}. \begin{note} Type arguments that are
+The template argument for \tcode{T} shall
+meet the \tcode{CopyConstructible} and \tcode{CopyAssignable} requirements.
+If \tcode{is_trivially_copyable_v<T> \&\&}
+\tcode{is_copy_constructible_v<T> \&\&}
+\tcode{is_move_constructible_v<T> \&\&}
+\tcode{is_copy_assignable_v<T> \&\&} 
+\tcode{is_move_assignable_v<T>}
+is \tcode{false}, the program is ill-formed.
+\begin{note} Type arguments that are
 not also statically initializable may be difficult to use. \end{note}
 
 \pnum
